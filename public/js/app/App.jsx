@@ -12,7 +12,7 @@ import Theme from './Theme';
 import store from './store';
 import browserHistory from './history';
 
-import Home from './views/Home';
+import Wrapper from './views/Wrapper';
 
 
 const App = () => (
@@ -29,7 +29,7 @@ const App = () => (
 
               <Switch>
 
-                <Route path="/" component={Home} />
+                <Route path="/" component={Wrapper} />
 
               </Switch>
 

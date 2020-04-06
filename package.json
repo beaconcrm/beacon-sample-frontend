@@ -12,13 +12,15 @@
   },
   "dependencies": {
     "aws-serverless-express": "^3.3.6",
+    "body-parser": "^1.19.0",
     "dotenv": "^4.0.0",
     "ejs": "^2.4.1",
     "express": "^4.13.4",
     "lodash": "^4.6.1",
     "moment": "^2.24.0",
     "mout": "^0.12.0",
-    "serverless": "^1.45.1"
+    "serverless": "^1.45.1",
+    "axios": "^0.19.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
@@ -38,7 +40,6 @@
     "@material-ui/icons": "^4.2.1",
     "@material-ui/lab": "^4.0.0-alpha.42",
     "@material-ui/pickers": "^3.2.3",
-    "axios": "^0.19.0",
     "babel-loader": "^8.0.6",
     "babel-plugin-lodash": "^3.3.4",
     "classnames": "^2.2.5",

@@ -79,7 +79,7 @@ class PageHeader extends Component {
               className={classes.logo}
             />
 
-            Admin
+            Sample Slack App
 
 
             <div className={classes.right}>
