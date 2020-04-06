@@ -1,0 +1,6 @@
+
+<% if (environment === 'development') { %>
+  <script type="text/javascript" src="http://localhost:8082/js/bundle.js" ></script>
+<% } else { %>
+  <script type="text/javascript" src="<%= assetsHost %>/js/bundle.js"></script>
+<% } %>

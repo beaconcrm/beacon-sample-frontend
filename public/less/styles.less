@@ -1,0 +1,56 @@
+@import 'variables';
+
+body {
+  // font-family: roboto, sans-serif;
+  font-family: roboto;
+  background-color: @body-bg;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #5E5E5E;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  font-size: 16px;
+  font-weight: normal;
+  margin: 0 0 15px 0;
+
+  // a {
+  //   color: @primary-blue;
+
+  //   &:visited {
+  //     color: @primary-blue;
+  //   }
+}
+
+// TODO move this to JSS
+.tab-nav:not([data-tab-color]) > li > a:after {
+  background: @primary-orange;
+}
+
+a {
+  color: @primary-blue;
+
+  &:visited {
+    color: @primary-blue;
+  }
+
+  &:hover, &:active, &:focus {
+    color: @primary-lighter-blue;
+  }
+}
+
+.unselectable {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+@import 'generic';

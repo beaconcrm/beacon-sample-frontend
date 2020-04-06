@@ -1,0 +1,27 @@
+{
+  "plugins": [
+    ["@babel/plugin-transform-runtime", {
+      "regenerator": true
+    }],
+    "lodash",
+    "react-hot-loader/babel",
+    [
+      "babel-plugin-webpack-alias", {
+        "config": "./webpack.config.js"
+      }
+    ]
+  ],
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "browsers": [
+            "ie >= 11"
+          ]
+        }
+      }
+    ],
+    "@babel/preset-react"
+  ]
+}

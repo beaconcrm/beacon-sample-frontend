@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!--[if IE 9 ]><html class="ie9"><![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <% /* Favicons for all the different devices */ %>
+        <link rel="apple-touch-icon" sizes="180x180" href="<%= assetsHost %>/img/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="<%= assetsHost %>/img/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="<%= assetsHost %>/img/favicon/favicon-16x16.png">
+        <link rel="manifest" href="<%= assetsHost %>/img/favicon/manifest.json">
+        <link rel="mask-icon" href="<%= assetsHost %>/img/favicon/safari-pinned-tab.svg" color="#16202b">
+        <meta name="theme-color" content="#ffffff">
+        
+        <title>Beacon Admin</title>
+
+        <script type="text/javascript">
+            window.assetsHost = '<%= assetsHost %>';
+        </script>
+
+        <% include ./partials/styles %>
+        <% include ./partials/head-scripts %>
+
+
+
+    </head>
+    <%# <body class="toggled">%>
+    <body class="toggled sw-toggled">
+
+      <div id="app"></div>
+
+    <% include ./partials/scripts %>
+
+    </body>
+  </html>
