@@ -17,7 +17,7 @@ A fun project for sending messages into Slack. The interface needs a little UX l
 
 ## Starting up on development
 
-This app has two scripts built into `package.json`. A backend server script, and a webpack builder.
+This app has two scripts built into `package.json`. A backend Express server, and a webpack dev server.
 
 ### 1) Express server
 
