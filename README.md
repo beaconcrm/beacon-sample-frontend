@@ -63,7 +63,14 @@ There are a number of UX areas that could be improved, including:
 
 ### 2. Make it possible to pick a channel
 
-There is an endpoint that you can use specifically to get a list of all of the channels in Slack. Once you've loaded the channels, you render a select (dropdown) field the [TextField](https://material-ui.com/components/text-fields/) component. An example dropdown is below:
+There is an endpoint that you can use specifically to get a list of all of the channels in Slack. You can load a list of all of the available channels with:
+
+```js
+const response = await axios.get('/slack/channels');
+console.log(response.data);
+```
+
+Once you've loaded the channels, you render a select (dropdown) field the [TextField](https://material-ui.com/components/text-fields/) component. An example dropdown is below:
 
 ```js
 <TextField
@@ -83,3 +90,8 @@ There is an endpoint that you can use specifically to get a list of all of the c
   ))}
 </TextField>
 ```
+
+Tips:
+
+* You may want to use an `isLoading` state value to handle loading state
+* When the channels are loading a [progress spinner](https://material-ui.com/components/progress/) can be a nice touch
