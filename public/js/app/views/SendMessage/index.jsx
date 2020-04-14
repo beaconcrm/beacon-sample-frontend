@@ -37,6 +37,7 @@ class SendMessage extends Component {
       method: 'post',
       url: '/slack/send_message',
       data: {
+        channel: 'sample-frontend-messages',
         message,
       },
       headers: {
