@@ -6,8 +6,8 @@ A fun project for sending messages into Slack. The interface needs a little UX l
 
 ### Requirements
 
-* Yarn / NPM
-* Node.js (preferably version 10+)
+* [Yarn](https://yarnpkg.com/)
+* [Node.js](https://nodejs.org/en/) (preferably version 10+)
 
 ### Steps
 
