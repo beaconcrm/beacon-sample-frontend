@@ -14,6 +14,10 @@ A fun project for sending messages into Slack. The interface needs a little UX l
 1. Clone this repo to your local machine.
 2. Run `yarn install`
 
+### Set up your .env file
+
+Before you try and run any servers, you'll need to create a new `.env` file in the root directory. There is already a `.env.sample`, copy this, and then set the value of `SLACK_ACCESS_TOKEN` in the file.
+
 
 ## Starting up on development
 
@@ -41,3 +45,54 @@ yarn webpack
 
 Once you have the above two running, open the app on http://localhost:8001.
 
+Go to the __Send message__ page, and try sending a Slack message to yourself.
+
+## Tasks
+
+This Slack app is using one of the latest versions of [Material UI](https://material-ui.com/), one of the most popular React.js frameworks. You'll want to lean on their documentation extensively while working on these tasks.
+
+### 1. Improve the Send message page UX
+
+There are a number of UX areas that could be improved, including:
+
+1. The message should be blanked after a successful send
+2. The [TextField](https://material-ui.com/api/text-field/#textfield-api) and [Button](https://material-ui.com/api/button/) should be disabled while the message is being sent
+3. Change the [Button](https://material-ui.com/api/button/) to `Sending...` while the message is being sent
+4. Show a nice [Alert](https://material-ui.com/api/alert/) message to indicate a successful send
+5. An error [Alert](https://material-ui.com/api/alert/) should be surfaced to the user (__tip:__ to simulate an error, just switch off the dev server with `ctrl + c`)
+
+### 2. Make it possible to pick a channel
+
+There is [an endpoint](http://localhost:8001/slack/channels) that you can use specifically to get a list of all of the channels in Slack. You can load a list of all of the available channels with:
+
+```js
+const response = await axios.get('/slack/channels');
+console.log(response.data);
+```
+
+Once you've loaded the channels, you render a select (dropdown) field the [TextField](https://material-ui.com/components/text-fields/) component. An example dropdown is below: (you'll need to change a few things to make it work)
+
+```js
+<TextField
+  select
+  label="Channel"
+  value=""
+  onChange={(e) => {
+    console.log(e.target.value);
+  })
+  helperText="Please choose your channel"
+  margin="normal"
+>
+  {map(items, item => (
+    <MenuItem key={item.value} value={item.value}>
+      {item.label}
+    </MenuItem>
+  ))}
+</TextField>
+```
+
+Tips:
+
+* Load the channels via `componentDidMount`
+* You may want to use an `isLoading` state value to handle loading state
+* When the channels are loading a [progress spinner](https://material-ui.com/components/progress/) can be a nice touch
