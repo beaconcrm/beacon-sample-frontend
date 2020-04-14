@@ -97,6 +97,6 @@ Once you've loaded the channels, you render a select (dropdown) field the [TextF
 
 Tips:
 
-* Load the channels via `componentDidMount`
+* Load the channels via [componentDidMount](https://reactjs.org/docs/react-component.html#componentdidmount)
 * You may want to use an `isLoading` state value to handle loading state
 * When the channels are loading a [progress spinner](https://material-ui.com/components/progress/) can be a nice touch
