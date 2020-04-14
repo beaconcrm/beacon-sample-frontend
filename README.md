@@ -70,7 +70,7 @@ const response = await axios.get('/slack/channels');
 console.log(response.data);
 ```
 
-Once you've loaded the channels, you render a select (dropdown) field the [TextField](https://material-ui.com/components/text-fields/) component. An example dropdown is below:
+Once you've loaded the channels, you render a select (dropdown) field the [TextField](https://material-ui.com/components/text-fields/) component. An example dropdown is below: (you'll need to change a few things to make it work)
 
 ```js
 <TextField
