@@ -53,7 +53,7 @@ Go to the __Send message__ page, and try sending a Slack message to yourself.
 
 There are a number of UX areas that could be improved, including:
 
-* The message does not blank out after being sent
-* Fields and buttons are not disabled during form submission
-* There is nothing to indicate that the message was sent successfully
-* Error messages are not surfaced to the user (tip: to simulate an error, just switch off the dev server with `ctrl + c`)
+1. The message does not blank out after being sent
+2. Fields and buttons are not disabled during form submission
+3. There is nothing to indicate that the message was sent successfully (a success alert would be nice)
+4. Error messages are not surfaced to the user (tip: to simulate an error, just switch off the dev server with `ctrl + c`)
