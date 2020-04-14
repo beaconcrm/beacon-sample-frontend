@@ -51,6 +51,8 @@ Go to the __Send message__ page, and try sending a Slack message to yourself.
 
 This Slack app is using one of the latest versions of [Material UI](https://material-ui.com/), one of the most popular React.js frameworks. You'll want to lean on their documentation extensively while working on these tasks.
 
+__Important:__ you __only__ need to focus on the code within `public/js/app`.
+
 ### 1. Improve the Send message page UX
 
 There are a number of UX areas that could be improved, including:
@@ -63,7 +65,9 @@ There are a number of UX areas that could be improved, including:
 
 ### 2. Make it possible to pick a channel
 
-There is [an endpoint](http://localhost:8001/slack/channels) that you can use specifically to get a list of all of the channels in Slack. You can load a list of all of the available channels with:
+It would be great if the user could pick the Slack channel to send messages to before they hit send!
+
+There is [an endpoint](http://localhost:8001/slack/channels) that you can use specifically to get a list of all of the channels in Slack. You can load a list of all of the available channels in your code with:
 
 ```js
 const response = await axios.get('/slack/channels');
