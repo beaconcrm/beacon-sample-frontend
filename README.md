@@ -1,3 +1,2 @@
-# Sample frontend
+# Sample frontend Slack app
 
-The Beacon admin panel

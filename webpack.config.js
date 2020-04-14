@@ -1,5 +1,4 @@
 const _ = require('lodash');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 
 // see https://webpack.js.org/concepts/mode/
@@ -73,19 +72,5 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     publicPath: 'http://localhost:8082/',
     pathinfo: false,
-  },
-  optimization: {
-    minimizer: mode === 'production' ? [
-      new UglifyJsPlugin({
-        uglifyOptions: {
-          output: {
-            comments: false,
-          },
-        },
-      }),
-    ] : undefined,
-    removeAvailableModules: false,
-    removeEmptyChunks: false,
-    splitChunks: false,
   },
 };
