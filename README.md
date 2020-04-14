@@ -17,7 +17,9 @@ A fun project for sending messages into Slack. The interface needs a little UX l
 
 ### Starting the server
 
-This app has two scripts built into `package.json` - one for running an back-end Express server, and another for running a live webpack build on development (via `webpack-dev-server`).
+This app has two scripts built into `package.json` - one to run a back-end Express server, and another for running webpack builds in development.
+
+__Note:__ webpack automatically rebuilds when you make changes to your files. Additionally, [hot reloading](https://github.com/gaearon/react-hot-loader) causes UI components to auto-update when you make changes, without the need for a page refresh.
 
 To start the server:
 
