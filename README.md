@@ -55,5 +55,6 @@ There are a number of UX areas that could be improved, including:
 
 1. The message does not blank out after being sent
 2. Fields and buttons are not disabled during form submission
-3. There is nothing to indicate that the message was sent successfully (a success alert would be nice)
-4. Error messages are not surfaced to the user (tip: to simulate an error, just switch off the dev server with `ctrl + c`)
+3. Change the button to `Sending...` while sending a message
+4. There is nothing to indicate that the message was sent successfully (a success alert would be nice)
+5. Error messages are not surfaced to the user (__tip:__ to simulate an error, just switch off the dev server with `ctrl + c`)
