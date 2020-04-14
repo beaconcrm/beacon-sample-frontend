@@ -63,6 +63,8 @@ There are a number of UX areas that could be improved, including:
 4. Show a nice [Alert](https://material-ui.com/api/alert/) message to indicate a successful send
 5. An error [Alert](https://material-ui.com/api/alert/) should be surfaced to the user (__tip:__ to simulate an error, just switch off the dev server with `ctrl + c`)
 
+Tip: be sure to check out the "Components" within [Material UI](https://material-ui.com/), as well as the "Component API" (which are linked to above).
+
 ### 2. Make it possible to pick a channel
 
 It would be great if the user could pick the Slack channel to send messages to before they hit send!
