@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Route, Switch } from 'react-router-dom';
 
 import { withStyles } from '@material-ui/core/styles';
@@ -19,7 +18,7 @@ import Home from './Home';
 import SendMessage from './SendMessage';
 
 
-const Wrapper = ({ location, classes }) => (
+const ViewsWrapper = ({ classes }) => (
   <div>
 
     <AppBar
@@ -102,8 +101,6 @@ const styles = theme => ({
   },
 });
 
-Wrapper.propTypes = {
-  location: PropTypes.object.isRequired,
-};
+ViewsWrapper.propTypes = {};
 
-export default withStyles(styles)(Wrapper);
+export default withStyles(styles)(ViewsWrapper);

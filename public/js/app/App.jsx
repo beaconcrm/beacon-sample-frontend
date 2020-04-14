@@ -6,7 +6,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Theme from './Theme';
 import browserHistory from './history';
 
-import Wrapper from './views/Wrapper';
+import Views from './views';
 
 
 const App = () => (
@@ -20,7 +20,13 @@ const App = () => (
 
           <Switch>
 
-            <Route path="/" component={Wrapper} />
+            {/*
+            * Delegate all routes to the `views` folder, where there is more routing.
+            * The `component` is expecting a function, and `Views` is an object so
+            * fails the `Route` validation. Wrap in a function to make it work,
+            * it's not important.
+            */}
+            <Route path="/" component={props => <Views {...props} />} />
 
           </Switch>
 

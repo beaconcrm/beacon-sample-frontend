@@ -1,6 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'; // v1.x
 import grey from '@material-ui/core/colors/grey';
+
 
 const AdminTheme = createMuiTheme({
   palette: {
@@ -90,5 +92,9 @@ const Theme = ({ children }) => (
     {children}
   </MuiThemeProvider>
 );
+
+Theme.propTypes = {
+  children: PropTypes.node,
+};
 
 export default Theme;

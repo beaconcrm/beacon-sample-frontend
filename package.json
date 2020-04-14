@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "grunt copy && NODE_ENV=development nodemon dev.js",
-    "lint": "eslint .",
+    "lint": "eslint --ext .jsx,.js public/js",
     "webpack": "NODE_ENV=development webpack-dev-server"
   },
   "dependencies": {

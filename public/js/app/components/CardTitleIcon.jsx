@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 
 const CardTitleIcon = ({ children, classes }) => (
@@ -15,5 +16,9 @@ const styles = theme => ({
     top: 5,
   },
 });
+
+CardTitleIcon.propTypes = {
+  children: PropTypes.node,
+};
 
 export default withStyles(styles)(CardTitleIcon);
