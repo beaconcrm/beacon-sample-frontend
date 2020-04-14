@@ -12,5 +12,10 @@ A fun project for sending messages into Slack. The interface needs a little UX l
 ### Steps
 
 1. Clone this repo to your local machine.
-
 2. Run `yarn install`
+
+
+### Starting the server
+
+This app has two scripts built into `package.json` - one for running an back-end Express server, and another for running a live webpack build on development (via `webpack-dev-server`).
+
