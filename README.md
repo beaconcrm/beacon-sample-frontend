@@ -14,6 +14,10 @@ A fun project for sending messages into Slack. The interface needs a little UX l
 1. Clone this repo to your local machine.
 2. Run `yarn install`
 
+### Set up your .env file
+
+Before you try and run any servers, you'll need to create a new `.env` file in the root directory. There is already a `.env.sample`, copy this, and then set the value of `SLACK_ACCESS_TOKEN` in the file.
+
 
 ## Starting up on development
 
@@ -41,3 +45,15 @@ yarn webpack
 
 Once you have the above two running, open the app on http://localhost:8001.
 
+Go to the __Send message__ page, and try sending a Slack message to yourself.
+
+## Tasks
+
+### 1. Improve the Send message page UX
+
+There are a number of UX areas that could be improved, including:
+
+* The message does not blank out after being sent
+* Fields and buttons are not disabled during form submission
+* There is nothing to indicate that the message was sent successfully
+* Error messages are not surfaced to the user (tip: to simulate an error, just switch off the dev server with `ctrl + c`)
