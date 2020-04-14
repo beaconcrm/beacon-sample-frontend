@@ -15,7 +15,7 @@ A fun project for sending messages into Slack. The interface needs a little UX l
 2. Run `yarn install`
 
 
-### Starting the server
+## Starting the server
 
 This app has two scripts built into `package.json` - one to run a back-end Express server, and another for running webpack builds in development.
 
