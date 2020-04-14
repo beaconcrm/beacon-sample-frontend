@@ -49,6 +49,8 @@ Go to the __Send message__ page, and try sending a Slack message to yourself.
 
 ## Tasks
 
+This Slack app is using one of the latest versions of [Material UI](https://material-ui.com/), one of the most popular React.js frameworks. You'll want to lean on their documentation extensively while working on these tasks.
+
 ### 1. Improve the Send message page UX
 
 There are a number of UX areas that could be improved, including:
