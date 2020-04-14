@@ -19,3 +19,14 @@ A fun project for sending messages into Slack. The interface needs a little UX l
 
 This app has two scripts built into `package.json` - one for running an back-end Express server, and another for running a live webpack build on development (via `webpack-dev-server`).
 
+To start the server:
+
+```
+yarn dev
+```
+
+And to start the webpack builds:
+
+```
+yarn webpack
+```
