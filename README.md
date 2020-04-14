@@ -35,7 +35,7 @@ yarn dev
 
 Run webpack builds in development. Webpack automatically rebuilds when you make changes to the files in `public/`.
 
-Additionally, [hot reloading](https://github.com/gaearon/react-hot-loader) causes UI components to auto-update when you make changes, without the need for a page refresh.
+Additionally, [hot reloading](https://github.com/gaearon/react-hot-loader) causes UI components to auto-update when you make changes, without the need for a page refresh. Hot reloading has its quirks, but it tends to save a world of time.
 
 ```
 yarn webpack
