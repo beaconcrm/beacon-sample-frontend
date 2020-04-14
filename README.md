@@ -55,8 +55,31 @@ This Slack app is using one of the latest versions of [Material UI](https://mate
 
 There are a number of UX areas that could be improved, including:
 
-1. The message does not blank out after being sent
-2. Fields and buttons are not disabled during form submission
-3. Change the button to `Sending...` while sending a message
-4. There is nothing to indicate that the message was sent successfully (a success alert would be nice)
-5. Error messages are not surfaced to the user (__tip:__ to simulate an error, just switch off the dev server with `ctrl + c`)
+1. The message should be blanked after a successful send
+2. The [TextField](https://material-ui.com/api/text-field/#textfield-api) and [Button](https://material-ui.com/api/button/) should be disabled while the message is being sent
+3. Change the [Button](https://material-ui.com/api/button/) to `Sending...` while the message is being sent
+4. Show a nice [Alert](https://material-ui.com/api/alert/) message to indicate a successful send
+5. An error [Alert](https://material-ui.com/api/alert/) should be surfaced to the user (__tip:__ to simulate an error, just switch off the dev server with `ctrl + c`)
+
+### 2. Make it possible to pick a channel
+
+There is an endpoint that you can use specifically to get a list of all of the channels in Slack. Once you've loaded the channels, you render a select (dropdown) field the [TextField](https://material-ui.com/components/text-fields/) component. An example dropdown is below:
+
+```js
+<TextField
+  select
+  label="Channel"
+  value=""
+  onChange={(e) => {
+    console.log(e.target.value);
+  })
+  helperText="Please choose your channel"
+  margin="normal"
+>
+  {map(items, item => (
+    <MenuItem key={item.value} value={item.value}>
+      {item.label}
+    </MenuItem>
+  ))}
+</TextField>
+```
