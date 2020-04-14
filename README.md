@@ -15,20 +15,25 @@ A fun project for sending messages into Slack. The interface needs a little UX l
 2. Run `yarn install`
 
 
-## Starting the server
+## Starting up on development
 
-This app has two scripts built into `package.json` - one to run a back-end Express server, and another for running webpack builds in development.
+This app has two scripts built into `package.json`. A backend server script, and a webpack builder.
 
-__Note:__ webpack automatically rebuilds when you make changes to your files. Additionally, [hot reloading](https://github.com/gaearon/react-hot-loader) causes UI components to auto-update when you make changes, without the need for a page refresh.
+### 1) Express server
 
-To start the server:
+Spin up an Express server that enables you to work on your app in development:
 
 ```
 yarn dev
 ```
 
-And to start the webpack builds:
+### 2) Webpack dev server
+
+Run webpack builds in development. Webpack automatically rebuilds when you make changes to the files in `public/`.
+
+Additionally, [hot reloading](https://github.com/gaearon/react-hot-loader) causes UI components to auto-update when you make changes, without the need for a page refresh.
 
 ```
 yarn webpack
 ```
+
