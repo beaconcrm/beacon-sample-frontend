@@ -37,3 +37,7 @@ Additionally, [hot reloading](https://github.com/gaearon/react-hot-loader) cause
 yarn webpack
 ```
 
+### Open the app
+
+Once you have the above two running, open the app on http://localhost:8001.
+
