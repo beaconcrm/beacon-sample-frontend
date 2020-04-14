@@ -63,7 +63,7 @@ There are a number of UX areas that could be improved, including:
 
 ### 2. Make it possible to pick a channel
 
-There is an endpoint that you can use specifically to get a list of all of the channels in Slack. You can load a list of all of the available channels with:
+There is [an endpoint](http://localhost:8001/slack/channels) that you can use specifically to get a list of all of the channels in Slack. You can load a list of all of the available channels with:
 
 ```js
 const response = await axios.get('/slack/channels');
