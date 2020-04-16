@@ -105,6 +105,6 @@ Tips:
 
 ## TODO
 
-* Recommend trying things out with Material UI first (e.g. paste in a `Button`)
+* Consider recommending trying things out with Material UI first (e.g. paste in a `Button`)
 * Make Nodemon auto-restart the server when the `.env` file changes
 * Consider removing Beacon linting as it's too strict
