@@ -102,3 +102,8 @@ Tips:
 * Load the channels via [componentDidMount](https://reactjs.org/docs/react-component.html#componentdidmount)
 * You may want to use an `isLoading` state value to handle loading state
 * When the channels are loading a [progress spinner](https://material-ui.com/components/progress/) can be a nice touch
+
+## TODO
+
+* Make Nodemon auto-restart the server when the `.env` file changes
+* Consider removing Beacon linting as it's too strict
