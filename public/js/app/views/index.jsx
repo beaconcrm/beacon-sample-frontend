@@ -15,7 +15,7 @@ import SendIcon from '@material-ui/icons/Send';
 import browserHistory from 'app/history';
 
 import Home from './Home';
-import SendMessage from './SendMessage';
+import Celebrate from './Celebrate';
 
 
 const ViewsWrapper = ({ classes }) => (
@@ -32,7 +32,7 @@ const ViewsWrapper = ({ classes }) => (
           className={classes.logo}
         />
 
-        Sample Slack App
+        The Beacon Celebration Service
       </Toolbar>
     </AppBar>
 
@@ -59,13 +59,13 @@ const ViewsWrapper = ({ classes }) => (
 
       <ListItem
         button
-        onClick={() => browserHistory.push('/send_message')}
+        onClick={() => browserHistory.push('/celebrate')}
       >
         <ListItemIcon>
           <SendIcon />
         </ListItemIcon>
         <ListItemText
-          primary="Send message"
+          primary="Celebrate"
           disableTypography
         />
       </ListItem>
@@ -75,7 +75,7 @@ const ViewsWrapper = ({ classes }) => (
     <div className={classes.content}>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/send_message" component={SendMessage} />
+        <Route exact path="/celebrate" component={Celebrate} />
       </Switch>
     </div>
 

@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
+import confetti from 'utils/confetti';
 // import Alert from '@material-ui/lab/Alert';
 
 import CardTitle from 'components/CardTitle';
 
 
-class SendMessage extends Component {
+class Celebrate extends Component {
 
   constructor() {
     super();
 
     this.state = {
-      message: '',
+      duration: '',
     };
 
     this.handleMessageChange = this.handleMessageChange.bind(this);
@@ -26,39 +26,27 @@ class SendMessage extends Component {
 
   handleMessageChange(e) {
     this.setState({
-      message: e.target.value,
+      duration: e.target.value,
     });
   }
 
   async handleSendClick() {
-    const { message } = this.state;
-
-    await axios({
-      method: 'post',
-      url: '/slack/send_message',
-      data: {
-        channel: 'sample-frontend-messages',
-        message,
-      },
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      responseType: 'json',
-    });
+    const { duration } = this.state;
+    confetti(duration);
   }
 
   render() {
-    const { message } = this.state;
+    const { duration } = this.state;
 
     return (
       <Card>
         <CardContent>
           <CardTitle>
-            Send a Slack message
+            Fire off some confetti
           </CardTitle>
 
           <Typography variant="subtitle1">
-            Type your message in the input below, and then click send.
+            Choose how long you want to celebrate for and hit 'go'.
           </Typography>
 
           <br />
@@ -75,7 +63,7 @@ class SendMessage extends Component {
           <TextField
             variant="outlined"
             label="Message to send"
-            value={message}
+            value={duration}
             onChange={this.handleMessageChange}
             fullWidth
           />
@@ -88,7 +76,7 @@ class SendMessage extends Component {
             variant="contained"
             color="primary"
           >
-            Send
+            Go
           </Button>
 
         </CardContent>
@@ -98,4 +86,4 @@ class SendMessage extends Component {
 
 }
 
-export default SendMessage;
+export default Celebrate;
