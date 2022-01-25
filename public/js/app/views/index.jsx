@@ -16,6 +16,8 @@ import browserHistory from 'app/history';
 
 import Home from './Home';
 import Celebrate from './Celebrate';
+import Effects from './Effects';
+import State from './State';
 
 
 const ViewsWrapper = ({ classes }) => (
@@ -45,7 +47,6 @@ const ViewsWrapper = ({ classes }) => (
 
       <ListItem
         button
-        // onClick={this.handleClick}
         onClick={() => browserHistory.push('/')}
       >
         <ListItemIcon>
@@ -65,7 +66,33 @@ const ViewsWrapper = ({ classes }) => (
           <SendIcon />
         </ListItemIcon>
         <ListItemText
-          primary="Celebrate"
+          primary="Task 1: Celebrate"
+          disableTypography
+        />
+      </ListItem>
+
+      <ListItem
+        button
+        onClick={() => browserHistory.push('/effects')}
+      >
+        <ListItemIcon>
+          <SendIcon />
+        </ListItemIcon>
+        <ListItemText
+          primary="Task 2: Effects"
+          disableTypography
+        />
+      </ListItem>
+
+      <ListItem
+        button
+        onClick={() => browserHistory.push('/state')}
+      >
+        <ListItemIcon>
+          <SendIcon />
+        </ListItemIcon>
+        <ListItemText
+          primary="Task 3: State"
           disableTypography
         />
       </ListItem>
@@ -76,6 +103,8 @@ const ViewsWrapper = ({ classes }) => (
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/celebrate" component={Celebrate} />
+        <Route exact path="/effects" component={Effects} />
+        <Route exact path="/state" component={State} />
       </Switch>
     </div>
 

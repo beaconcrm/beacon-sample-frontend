@@ -3,20 +3,28 @@
 * https://www.kirilv.com/canvas-confetti/
 */
 import confetti from 'canvas-confetti';
-import { assignIn, toNumber } from 'lodash';
+import { assignIn, toNumber, get } from 'lodash';
 
 const randomInRange = (min, max) => Math.random() * (max - min) + min;
+const colourMap = {
+  Red: '#FF0000',
+  Black: '#000000',
+  Blue: '#012b3a',
+  Orange: 'f5b743',
+};
 
-export default (duration) => {
+export default (duration, colour) => {
 
-  const parsedDuration = toNumber(duration);
+  const confettiColour = colour ? [get(colourMap, colour)] : ['#012b3a', '#f5b743'];
+
+  const parsedDuration = toNumber(duration) || 1000;
   const end = Date.now() + parsedDuration;
   const defaults = {
     startVelocity: 30,
     spread: 360,
     ticks: 60,
     zIndex: 1301,
-    colors: ['#012b3a', '#f5b743'],
+    colors: confettiColour,
   };
 
   const interval = setInterval(() => {

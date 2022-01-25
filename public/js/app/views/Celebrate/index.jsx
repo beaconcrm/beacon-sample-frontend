@@ -1,3 +1,9 @@
+/*
+
+Rewrite this so that it uses hooks.  Hooks are cool. Beat it, Classes.
+
+*/
+
 import React, { Component } from 'react';
 
 import Card from '@material-ui/core/Card';
@@ -6,7 +12,6 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import confetti from 'utils/confetti';
-// import Alert from '@material-ui/lab/Alert';
 
 import CardTitle from 'components/CardTitle';
 
@@ -42,27 +47,18 @@ class Celebrate extends Component {
       <Card>
         <CardContent>
           <CardTitle>
-            Fire off some confetti
+            Let's celebrate how fun React is by firing off some confetti
           </CardTitle>
 
           <Typography variant="subtitle1">
-            Choose how long you want to celebrate for and hit 'go'.
+            Choose the length of your celebration in miliseconds and hit 'go'.
           </Typography>
 
           <br />
 
-          {/*
-          <div>
-            <Alert severity="success">
-              Message sent
-            </Alert>
-            <br />
-          </div>
-          */}
-
           <TextField
             variant="outlined"
-            label="Message to send"
+            label="Duration in milliseconds"
             value={duration}
             onChange={this.handleMessageChange}
             fullWidth
