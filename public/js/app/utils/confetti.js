@@ -1,6 +1,8 @@
 /*
 * 🎉
 * https://www.kirilv.com/canvas-confetti/
+*
+* You do not need to edit this file.
 */
 import confetti from 'canvas-confetti';
 import { assignIn, toNumber, get } from 'lodash';
@@ -13,14 +15,15 @@ const colourMap = {
   Orange: 'f5b743',
 };
 
-export default (duration, colour) => {
+export default (duration, colour, velocity) => {
 
   const confettiColour = colour ? [get(colourMap, colour)] : ['#012b3a', '#f5b743'];
 
   const parsedDuration = toNumber(duration) || 1000;
+  const parsedVelocity = toNumber(velocity) || 30;
   const end = Date.now() + parsedDuration;
   const defaults = {
-    startVelocity: 30,
+    startVelocity: parsedVelocity,
     spread: 360,
     ticks: 60,
     zIndex: 1301,

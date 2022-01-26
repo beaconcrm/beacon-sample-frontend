@@ -1,19 +1,3 @@
-/*
-
-This page has a slightly different component structure to the others.
-
-1. There's something strange going on. The colours aren't updating with every click.
-It's as if they're one click behind in a series of changes. Fix it!
-
-2. Add another component called 'Velocity' which allows the user to change the start velocity.
-  - Make sure only a sensible range of velocities can be entered
-  - As well as this file you'll also need to update confetti.js in the utils folder.
-
-3. Make the 'Go' button work so that confetti fires with the desired velocity and colour.
-
-
-*/
-
 import React, { useState } from 'react';
 
 import Card from '@material-ui/core/Card';

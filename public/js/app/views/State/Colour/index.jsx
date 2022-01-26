@@ -14,7 +14,7 @@ const Colour = ({
   const handleColourChange = (e) => {
     setColour(e.target.value);
     // Broadcast this change to the parent component
-    onChange(colour);
+    onChange(e.target.value);
   };
 
   const colours = ['Red', 'Black', 'Blue', 'Orange'];

@@ -1,14 +1,3 @@
-/*
-
-1. Use the Effect hook to make confetti fire when a new colour is selected 
-so we don't need to hit 'Go'.
-
-2. How do we make it only show on the first render?
-
-3. Advanced: How do we make it show on subsequent renders but not the first?
-
-*/
-
 import React, { useState } from 'react';
 import { map } from 'lodash';
 
@@ -30,7 +19,7 @@ const Effects = () => {
     setColour(e.target.value);
   };
 
-  const handleGoClick = async () => {
+  const handleGoClick = () => {
     confetti(5000, colour);
   };
 

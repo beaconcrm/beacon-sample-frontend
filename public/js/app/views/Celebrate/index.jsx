@@ -1,9 +1,3 @@
-/*
-
-Rewrite this so that it uses hooks.  Hooks are cool. Beat it, Classes.
-
-*/
-
 import React, { Component } from 'react';
 
 import Card from '@material-ui/core/Card';
@@ -35,7 +29,7 @@ class Celebrate extends Component {
     });
   }
 
-  async handleSendClick() {
+  handleSendClick() {
     const { duration } = this.state;
     confetti(duration);
   }
