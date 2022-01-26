@@ -7,7 +7,7 @@
     "webpack": "NODE_ENV=development webpack-dev-server"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.2",
     "body-parser": "^1.19.0",
     "canvas-confetti": "^1.4.0",
     "dotenv": "^4.0.0",
