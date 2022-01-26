@@ -71,4 +71,4 @@ The State tab lets you choose a colour for your confetti, but we're going to add
 ## Notes
 
 * Ask Sam if you have any questions at any point - we're here to help!
-* If you don't have time to 
+* If you don't have time to finish a task in the suggested time then that's absolutely fine but please move on - 3 half-finished tasks is an order of magnitude more desirable than 1 finished task.
