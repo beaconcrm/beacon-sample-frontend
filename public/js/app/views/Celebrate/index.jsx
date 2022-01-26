@@ -1,23 +1,22 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
-// import Alert from '@material-ui/lab/Alert';
+import confetti from 'utils/confetti';
 
 import CardTitle from 'components/CardTitle';
 
 
-class SendMessage extends Component {
+class Celebrate extends Component {
 
   constructor() {
     super();
 
     this.state = {
-      message: '',
+      duration: '',
     };
 
     this.handleMessageChange = this.handleMessageChange.bind(this);
@@ -26,56 +25,35 @@ class SendMessage extends Component {
 
   handleMessageChange(e) {
     this.setState({
-      message: e.target.value,
+      duration: e.target.value,
     });
   }
 
-  async handleSendClick() {
-    const { message } = this.state;
-
-    await axios({
-      method: 'post',
-      url: '/slack/send_message',
-      data: {
-        channel: 'sample-frontend-messages',
-        message,
-      },
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      responseType: 'json',
-    });
+  handleSendClick() {
+    const { duration } = this.state;
+    confetti(duration);
   }
 
   render() {
-    const { message } = this.state;
+    const { duration } = this.state;
 
     return (
       <Card>
         <CardContent>
           <CardTitle>
-            Send a Slack message
+            Let's celebrate how fun React is by firing off some confetti
           </CardTitle>
 
           <Typography variant="subtitle1">
-            Type your message in the input below, and then click send.
+            Choose the length of your celebration in miliseconds and hit 'go'.
           </Typography>
 
           <br />
 
-          {/*
-          <div>
-            <Alert severity="success">
-              Message sent
-            </Alert>
-            <br />
-          </div>
-          */}
-
           <TextField
             variant="outlined"
-            label="Message to send"
-            value={message}
+            label="Duration in milliseconds"
+            value={duration}
             onChange={this.handleMessageChange}
             fullWidth
           />
@@ -88,7 +66,7 @@ class SendMessage extends Component {
             variant="contained"
             color="primary"
           >
-            Send
+            Go
           </Button>
 
         </CardContent>
@@ -98,4 +76,4 @@ class SendMessage extends Component {
 
 }
 
-export default SendMessage;
+export default Celebrate;

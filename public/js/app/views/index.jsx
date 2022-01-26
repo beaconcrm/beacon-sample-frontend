@@ -15,7 +15,9 @@ import SendIcon from '@material-ui/icons/Send';
 import browserHistory from 'app/history';
 
 import Home from './Home';
-import SendMessage from './SendMessage';
+import Celebrate from './Celebrate';
+import Effects from './Effects';
+import State from './State';
 
 
 const ViewsWrapper = ({ classes }) => (
@@ -32,7 +34,7 @@ const ViewsWrapper = ({ classes }) => (
           className={classes.logo}
         />
 
-        Sample Slack App
+        The Beacon Celebration Service
       </Toolbar>
     </AppBar>
 
@@ -45,7 +47,6 @@ const ViewsWrapper = ({ classes }) => (
 
       <ListItem
         button
-        // onClick={this.handleClick}
         onClick={() => browserHistory.push('/')}
       >
         <ListItemIcon>
@@ -59,13 +60,39 @@ const ViewsWrapper = ({ classes }) => (
 
       <ListItem
         button
-        onClick={() => browserHistory.push('/send_message')}
+        onClick={() => browserHistory.push('/celebrate')}
       >
         <ListItemIcon>
           <SendIcon />
         </ListItemIcon>
         <ListItemText
-          primary="Send message"
+          primary="Task 1: Celebrate"
+          disableTypography
+        />
+      </ListItem>
+
+      <ListItem
+        button
+        onClick={() => browserHistory.push('/effects')}
+      >
+        <ListItemIcon>
+          <SendIcon />
+        </ListItemIcon>
+        <ListItemText
+          primary="Task 2: Effects"
+          disableTypography
+        />
+      </ListItem>
+
+      <ListItem
+        button
+        onClick={() => browserHistory.push('/state')}
+      >
+        <ListItemIcon>
+          <SendIcon />
+        </ListItemIcon>
+        <ListItemText
+          primary="Task 3: State"
           disableTypography
         />
       </ListItem>
@@ -75,7 +102,9 @@ const ViewsWrapper = ({ classes }) => (
     <div className={classes.content}>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/send_message" component={SendMessage} />
+        <Route exact path="/celebrate" component={Celebrate} />
+        <Route exact path="/effects" component={Effects} />
+        <Route exact path="/state" component={State} />
       </Switch>
     </div>
 

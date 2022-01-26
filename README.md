@@ -1,6 +1,6 @@
-# Sample frontend Slack app
+# The Beacon Celebration Service
 
-A fun project for sending messages into Slack. The interface needs a little UX love, but once it's had that, you'll be able to send messages as much as you like 😎.
+A silly project for firing various kinds of confetti.
 
 ## Installation
 
@@ -13,11 +13,6 @@ A fun project for sending messages into Slack. The interface needs a little UX l
 
 1. Clone this repo to your local machine.
 2. Run `yarn install`
-
-### Set up your .env file
-
-Before you try and run any servers, you'll need to create a new `.env` file in the root directory. There is already a `.env.sample`, copy this, and then set the value of `SLACK_ACCESS_TOKEN` in the file.
-
 
 ## Starting up on development
 
@@ -45,66 +40,35 @@ yarn webpack
 
 Once you have the above two running, open the app on http://localhost:8001.
 
-Go to the __Send message__ page, and try sending a Slack message to yourself.
+Go to the Celebrate page, hit go, and savour the celebratory atmosphere of your browser.
 
 ## Tasks
 
-This Slack app is using one of the latest versions of [Material UI](https://material-ui.com/), one of the most popular React.js frameworks. You'll want to lean on their documentation extensively while working on these tasks.
+This app is using one of the latest versions of [Material UI](https://material-ui.com/), one of the most popular React.js frameworks. It's used extensively throughout Beacon.
 
-__Important:__ you __only__ need to focus on the code within `public/js/app`.
+__Important:__ you __only__ need to change code within `public/js/app/views`.
 
-### 1. Improve the Send message page UX
+### Task 1: Celebrate (spend up to 20 minutes on this task)
 
-There are a number of UX areas that could be improved, including:
+The Celebrate tab lets you choose a duration for the confetti and fires when you click the 'Go' button.
 
-1. The message should be blanked after a successful send
-2. The [TextField](https://material-ui.com/api/text-field/#textfield-api) and [Button](https://material-ui.com/api/button/) should be disabled while the message is being sent
-3. Change the [Button](https://material-ui.com/api/button/) to `Sending...` while the message is being sent
-4. Show a nice [Alert](https://material-ui.com/api/alert/) message to indicate a successful send
-5. An error [Alert](https://material-ui.com/api/alert/) should be surfaced to the user (__tip:__ to simulate an error, just switch off the dev server with `ctrl + c`)
+1. Rewrite Celebrate/index.jsx so that it uses hooks.  You do not need to add or modify any functionality.
 
-Tip: be sure to check out the "Components" within [Material UI](https://material-ui.com/), as well as the "Component API" (which are linked to above).
+### Task 2. Effects (spend up to 10 minutes on this task)
 
-### 2. Make it possible to pick a channel
+The Effects tab lets you choose a colour for your confetti.
 
-It would be great if the user could pick the Slack channel to send messages to before they hit send!
+1. Use the Effect hook to make confetti fire when a new colour is selected so we don't need to hit 'Go' (Don't worry if this fires on mount - that's fine).
 
-There is [an endpoint](http://localhost:8001/slack/channels) that you can use specifically to get a list of all of the channels in Slack. You can load a list of all of the available channels in your code with:
+2. How do we make it only show on the first render? Add code to do this but leave it commented out!
 
-```js
-const response = await axios.get('/slack/channels');
-console.log(response.data);
-```
+### Task 3. State (spend up to 25 minutes on this task)
 
-Once you've loaded the channels, you render a select (dropdown) field the [TextField](https://material-ui.com/components/text-fields/) component. An example dropdown is below: (you'll need to change a few things to make it work)
+The State tab lets you choose a colour for your confetti, but we're going to add another option. You'll see from the code that we've broken down this page into separate components for the inputs.
 
-```js
-<TextField
-  select
-  label="Channel"
-  value=""
-  onChange={(e) => {
-    console.log(e.target.value);
-  })
-  helperText="Please choose your channel"
-  margin="normal"
->
-  {map(items, item => (
-    <MenuItem key={item.value} value={item.value}>
-      {item.label}
-    </MenuItem>
-  ))}
-</TextField>
-```
+1. Add another component called 'Velocity' which allows the user to change the start velocity of the confetti. You do not need to modify any files outside of the 'State' directory, the confetti util function is already expecting a third 'velocity' argument. You might not want to implement your new component exactly like the 'Colour' component.  That's fine, and feel free to update the Colour component as well if you wish.
 
-Tips:
+## Notes
 
-* Load the channels via [componentDidMount](https://reactjs.org/docs/react-component.html#componentdidmount)
-* You may want to use an `isLoading` state value to handle loading state
-* When the channels are loading a [progress spinner](https://material-ui.com/components/progress/) can be a nice touch
-
-## TODO
-
-* Consider recommending trying things out with Material UI first (e.g. paste in a `Button`)
-* Make Nodemon auto-restart the server when the `.env` file changes
-* Consider removing Beacon linting as it's too strict
+* Ask Sam if you have any questions at any point - we're here to help!
+* If you don't have time to 

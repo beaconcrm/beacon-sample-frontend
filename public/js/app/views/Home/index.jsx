@@ -13,7 +13,7 @@ const Home = () => (
       </CardTitle>
 
       <Typography variant="body1">
-        Happy days. You'll probably want to head to the Send message page.
+        Happy days. You'll probably want to head to the Celebrate page.
       </Typography>
     </CardContent>
   </Card>
