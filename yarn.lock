@@ -4803,10 +4803,10 @@ mkdirp@0.5.x, mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.1:
   dependencies:
     minimist "0.0.8"
 
-mout@^0.12.0:
-  version "0.12.0"
-  resolved "https://registry.yarnpkg.com/mout/-/mout-0.12.0.tgz#6d5b242ee331f9d04c68e58f77a91a3060e8cacb"
-  integrity sha1-bVskLuMx+dBMaOWPd6kaMGDoyss=
+mout@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/mout/-/mout-1.2.3.tgz#bd1477d8c7f2db5fcf43c91de30b6cc746b78e10"
+  integrity sha512-vtE+eZcSj/sBkIp6gxB87MznryWP+gHIp0XX9SKrzA5TAkvz6y7VTuNruBjYdJozd8NY5i9XVIsn8cn3SwNjzg==
 
 move-concurrently@^1.0.1:
   version "1.0.1"
