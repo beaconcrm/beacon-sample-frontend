@@ -40,7 +40,7 @@
     "eslint-plugin-lodash": "^2.7.0",
     "eslint-plugin-react": "^7.11.1",
     "eslint-plugin-react-hooks": "^2.3.0",
-    "grunt": "^1.0.3",
+    "grunt": "^1.5.3",
     "grunt-cli": "^1.2.0",
     "grunt-contrib-copy": "^1.0.0",
     "history": "^4.7.2",
