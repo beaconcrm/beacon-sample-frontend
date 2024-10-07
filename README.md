@@ -7,7 +7,7 @@ A silly project for firing various kinds of confetti.
 ### Requirements
 
 * [Yarn](https://yarnpkg.com/)
-* [Node.js](https://nodejs.org/en/) (preferably version 10+)
+* [Node.js](https://nodejs.org/en/) (version 12.16.2)
 
 ### Steps
 
