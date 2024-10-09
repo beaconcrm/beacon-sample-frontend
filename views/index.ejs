@@ -5,22 +5,22 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <% /* Favicons for all the different devices */ %>
-        <link rel="apple-touch-icon" sizes="180x180" href="<%= assetsHost %>/img/favicon/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="<%= assetsHost %>/img/favicon/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="<%= assetsHost %>/img/favicon/favicon-16x16.png">
-        <link rel="manifest" href="<%= assetsHost %>/img/favicon/manifest.json">
-        <link rel="mask-icon" href="<%= assetsHost %>/img/favicon/safari-pinned-tab.svg" color="#16202b">
+        <% /* Favicons for different devices */ %>
+        <link href="<%= assetsHost %>/img/favicon/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+        <link href="<%= assetsHost %>/img/favicon/apple-touch-icon.png" rel="apple-touch-icon"/>
+
+
         <meta name="theme-color" content="#ffffff">
         
-        <title>Beacon Frontend Slack</title>
+        <title>Beacon</title>
 
         <script type="text/javascript">
             window.assetsHost = '<%= assetsHost %>';
+            window.version = Number('<%= version %>');
         </script>
 
-        <% include ./partials/styles %>
-        <% include ./partials/head-scripts %>
+        <%- include('./partials/styles'); %>
+        <%- include('./partials/head-scripts'); %>
 
 
 
@@ -30,7 +30,7 @@
 
       <div id="app"></div>
 
-    <% include ./partials/scripts %>
+    <%- include('./partials/scripts'); %>
 
     </body>
   </html>

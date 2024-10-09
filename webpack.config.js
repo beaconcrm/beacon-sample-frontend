@@ -1,76 +1,146 @@
-const _ = require('lodash');
+const path = require("path");
+const webpack = require("webpack");
+const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
+const MomentLocalesPlugin = require("moment-locales-webpack-plugin");
+const { BugsnagSourceMapUploaderPlugin } = require("webpack-bugsnag-plugins");
+const { EsbuildPlugin } = require("esbuild-loader");
+const { RetryChunkLoadPlugin } = require("webpack-retry-chunk-load-plugin");
 
+const { assetsHost, assetsKey: version, bugsnag } = require("./lib/config");
 
-// see https://webpack.js.org/concepts/mode/
-const mode = process.env.NODE_ENV === 'development' ? 'development' : 'production';
-
-const path = require('path');
-const webpack = require('webpack');
+const mode =
+  process.env.NODE_ENV === "development" ? "development" : "production";
 
 module.exports = {
-  entry: [
-    './public/js/app/entry.jsx',
-  ],
-  mode,
-  devtool: process.env.NODE_ENV === 'production' ? 'none' : 'cheap-module-eval-source-map', // full source maps slow down incremental builds big time
-  devServer: {
-    port: 8082,
-    contentBase: './dist',
-    hot: true,
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-    },
-
-    // Below added because of https://github.com/webpack/webpack-dev-server/issues/416
-    disableHostCheck: true,
+  entry: {
+    app: "./public/js/app/entry.jsx",
   },
-  plugins: _.compact([
-    mode === 'development' && new webpack.HotModuleReplacementPlugin(),
-  ]),
+
+  devtool: mode === "development" ? "eval-source-map" : "source-map",
+
+  devServer: {
+    allowedHosts: [".dev.beaconcrm.org"],
+    client: {
+      overlay: {
+        errors: true,
+        warnings: false,
+        runtimeErrors: true,
+      },
+    },
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
+    hot: true,
+    liveReload: false,
+    port: 8082,
+  },
+
+  mode,
+
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        exclude: /(node_modules|bower_components)/,
+        exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
+            babelrc: true,
             cacheDirectory: true,
-            babelrc: false,
-            plugins: [
-              // the below makes async await work
-              ['@babel/plugin-transform-runtime', {
-                regenerator: true,
-              }],
-              'lodash',
-              'react-hot-loader/babel',
-            ],
-            presets: [
-              '@babel/preset-env',
-              '@babel/preset-react',
-            ],
           },
         },
       },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.html$/i,
+        loader: "html-loader",
+      },
     ],
   },
+
+  optimization: {
+    minimizer: [
+      (mode === "staging" || mode === "production") &&
+        new EsbuildPlugin({
+          css: true,
+          target: "es2015",
+        }),
+      new TerserPlugin({
+        minify: TerserPlugin.uglifyJsMinify,
+        // `terserOptions` options will be passed to `uglify-js`
+        // Link to options - https://github.com/mishoo/UglifyJS#minify-options
+        terserOptions: {},
+      }),
+    ],
+  },
+
+  output: {
+    filename: "js/bundle.js",
+    path: path.resolve(__dirname, "dist"),
+    publicPath:
+      mode === "development" ? "http://localhost:8082/" : `${assetsHost}/`,
+  },
+
+  plugins: [
+    mode === "development" && new ReactRefreshWebpackPlugin(),
+
+    new webpack.DefinePlugin({
+      "process.env": JSON.stringify(process.env),
+    }),
+
+    new webpack.ProvidePlugin({
+      Buffer: ["buffer", "Buffer"],
+    }),
+
+    new MomentLocalesPlugin({
+      localesToKeep: ["en-gb"],
+    }),
+
+    (mode === "staging" || mode === "production") &&
+      new BugsnagSourceMapUploaderPlugin({
+        apiKey: bugsnag.apiKey,
+        appVersion: String(version),
+      }),
+
+    new RetryChunkLoadPlugin({
+      maxRetries: 5,
+      retryDelay: 3000,
+    }),
+  ],
+
   resolve: {
-    extensions: ['.js', '.jsx'],
     alias: {
       app: `${__dirname}/public/js/app`,
       config: `${__dirname}/public/js/app/config`,
       components: `${__dirname}/public/js/app/components`,
+      selectors: `${__dirname}/public/js/app/selectors`,
       utils: `${__dirname}/public/js/app/utils`,
       actions: `${__dirname}/public/js/app/actions`,
       constants: `${__dirname}/public/js/app/constants`,
       reducers: `${__dirname}/public/js/app/reducers`,
       api: `${__dirname}/public/js/app/api`,
+      sockets: `${__dirname}/public/js/sockets`,
+      lib: `${__dirname}/public/js/lib`,
+      test: `${__dirname}/test`,
+      design: `${__dirname}/public/js/design-system`,
+      features: `${__dirname}/public/js/features`,
+      mocking: `${__dirname}/mocking`,
+      "pusher-local": `${__dirname}/public/js/lib/pusher.js`,
+    },
+    extensions: [".js", ".jsx"],
+    fallback: {
+      buffer: require.resolve("buffer/"),
+      path: require.resolve("path-browserify"),
     },
   },
-  output: {
-    filename: 'js/bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: 'http://localhost:8082/',
-    pathinfo: false,
+
+  stats: "minimal",
+
+  watchOptions: {
+    ignored: /node_modules/,
   },
 };
